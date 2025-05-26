@@ -1,0 +1,60 @@
+Create a CustomerOrder class with properties: orderId (string), items (array of objects with name, quantity, price), and status (string). Add a method calculateTotal() that returns the total order amount. Write an async method processPayment() that simulates payment with a Promise that resolves after 2 seconds. After calling the method, change the status to "paid" and print a success message.
+
+
+Thought process: 
+Input- String, Array of objects
+Process:
+ Create a function that takes properties of the order ID, items with their (name,quantity and price  ) and the status of the order .
+Set order status to pending
+Initialize the total to 0.
+Iterate through each item and calculate the total by multiplying the amount of items and the price.
+Then return the total
+After two seconds set the status of the order that was pending to be paid.
+Then display “Payment successful for order …”
+Output-Integer and a string
+
+Create a TeamMember class that takes name, role, and an array of tasks (each task is an object with title and completed boolean). Write a prototype method completeTask(taskTitle) that marks a task as completed. Write another method checkProgress() that returns a Promise resolving to "All tasks completed!" or rejecting with "Pending tasks remaining" based on the state of the tasks array.
+
+Thought process: 
+Input-String
+Process:
+Create a function that takes in the properties name, role and task
+Set task as completed
+Iterate through each task and check if the task titles are the same
+We check for the progress of the task and if all tasks are completed display “All tasks completed” else display “pending task remaining”
+Output- String
+Build a Candidate class with properties: name, position, and interviews (array of objects with date, status). Add a method scheduleInterview(date) that pushes a new interview with status "pending". Then write an async function sendConfirmation() that returns a Promise that resolves after 1 second with a message "Interview confirmed with [name]", and log the message.
+
+Thought process: 
+Input-String
+Process:
+Create a function called candidate that takes in name, interview and position as a parameter
+Initialize the interview to be an empty array that takes in date and status
+Assign the status to be pending
+After one second send a message saying “Interview confirmed with …”
+
+
+Design a Course class with properties: title, instructor, and students (array of student objects with name and progress). Add a method updateProgress(studentName, value) that modifies the student’s progress. Create an async method generateCertificate(studentName) that returns a Promise resolving only if the progress is 100, otherwise reject with "Incomplete progress".
+
+Thought process: 
+Input-String
+Process:
+Create a function that takes in title, instructor and students as a parameter
+
+
+Create a StockTracker class with a property watchlist (array of objects with symbol, threshold, currentPrice). Add a method updatePrice(symbol, newPrice) that updates the stock’s current price. Write an async method checkAlerts() that loops through the watchlist and returns a Promise resolving with a list of stocks where currentPrice >= threshold, or rejecting with "No alerts triggered".
+Thought process: 
+Input- 
+Process:
+Create a function that takes in the parameters watchlist with an array of symbol, threshold and the current space
+Update the price of the symbol
+Iterate through each stoch in the watch list
+check if current price is equal with the new price
+
+
+Iterate through each 
+
+
+
+
+

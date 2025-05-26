@@ -112,31 +112,67 @@ candidate.sendConfirmation();
 //    otherwise reject with "Incomplete progress".
 
 
+// class Course {
+//   constructor(title, instructor, students) {
+//     this.title = title;
+//     this.instructor = instructor;
+//     this.students = students;
+//   }
+
+//   updateProgress(studentName, value) {
+//     for (let student of this.students) {
+//       if (student.name === studentName) {
+//         student.progress = value;
+//       }
+//     }
+//   }
+
+//   async generateCertificate(studentName) {
+//     const student = this.students.find(s => s.name === studentName);
+//     if (student && student.progress === 100) {
+//       return `Certificate generated for ${studentName}`;
+//     } else {
+//       throw "Incomplete progress";
+//     }
+//   }
+// }
+
+// const course = new Course("JS 101", "Mr. Caleb", [
+//   { name: "Betty", progress: 90 },
+//   { name: "Mufasa", progress: 100 }
+// ]);
+
+// course.updateProgress("Betty", 100);
+
+// course.generateCertificate("Betty")
+//   .then(console.log)
+//   .catch(console.log);
+
 class Course {
-  constructor(title, instructor, students) {
+  constructor(title, instructor, students = []) {
     this.title = title;
     this.instructor = instructor;
     this.students = students;
   }
 
   updateProgress(studentName, value) {
-    for (let student of this.students) {
-      if (student.name === studentName) {
-        student.progress = value;
-      }
+    const student = this.students.find(s => s.name === studentName);
+    if (student) {
+      student.progress = value;
     }
   }
 
   async generateCertificate(studentName) {
     const student = this.students.find(s => s.name === studentName);
-    if (student && student.progress === 100) {
-      return `Certificate generated for ${studentName}`;
-    } else {
-      throw "Incomplete progress";
-    }
+    return new Promise((resolve, reject) => {
+      if (student && student.progress === 100) {
+        resolve(`Certificate generated for ${student.name}`);
+      } else {
+        reject("Incomplete progress");
+      }
+    });
   }
 }
-
 const course = new Course("JS 101", "Mr. Caleb", [
   { name: "Betty", progress: 90 },
   { name: "Mufasa", progress: 100 }
